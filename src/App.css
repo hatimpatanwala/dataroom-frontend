@@ -1,38 +1,48 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.ant-layout{
+  height: 100% !important;
+  background-color: white!important;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main-container{
+  height:100vh!important;
+  width:100%;
+  overflow: hidden;
 }
+.ant-layout-header{
+  /* background-color: #abe9cd!important; */
+  background-color: #fff!important;
+/* background-image: linear-gradient(315deg, #abe9cd 0%, #3eadcf 74%)!important; */
+border-bottom: 0.1px solid #b7b7b7!important;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.ant-layout-sider{
+  /* box-shadow: 17px 2px 17px -19px rgba(0,0,0,0.75);
+-webkit-box-shadow: 17px 2px 17px -19px rgba(0,0,0,0.75);
+-moz-box-shadow: 17px 2px 17px -19px rgba(0,0,0,0.75);
+background-color: #696969!important; */
+/* border: none; */
+background-color: #fff!important;
 }
+.ant-layout-content{
+ padding:5px 15px;
+ background-color:#fff !important;
+}
+.ant-breadcrumb{
+  background-color: white;
+}
+.breadcrumb{
+/* margin-left:200px;
+padding-left:15px;
+padding-right:15px; */
+display:flex;
+justify-content: space-between;
+}
+.breadcrumb-divider{
+  margin-top:5px;
+  margin-bottom:5px!important;
+}
+.content-wrapper.ant-layout{
+  height:92%!important;
+  /* justify-content:"space-between" !important; */
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
