@@ -9,13 +9,13 @@
 }
 .login-img{
     /* margin: auto; */
-    height: 40%;
-    width: 40%;
+    height: 48%;
+    width: 43%;
     /* margin-top: 12%;
     margin-left: 20%; */
     position: relative;
     top: 10%;
-    left: 32%;
+    left: 30%;
     opacity: 0.9;
     /* z-index: -1; */
     
@@ -31,4 +31,10 @@
 .login-input-container{
     position:relative;
     text-align: center;
+bottom: 15%;
+left: 3%;
+}
+.login-button{
+    margin-left: 6%;
+    width: 15%;
 }
