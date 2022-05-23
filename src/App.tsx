@@ -61,7 +61,7 @@ setUserInfo(values)
     <Route path='/login' element = {<Login updateUserInfo={updateUserInfo}/>}/>
     <Route path='/*' element={<Navigate to={"login"}/>} />
     </Routes>}
-   {userInfo &&<> <Header  />
+   {userInfo &&<> <Header userInfo={userInfo}  />
     <Layout>
       <Sider /> 
         <Content >
@@ -78,7 +78,7 @@ setUserInfo(values)
         <Routes>
          {primaryRoutes.map((tools)=>{
            const Component = tools.component
-           return <Route path={tools.link} element={<Component/>}/>
+           return <Route path={tools.link} element={<Component userInfo={userInfo}/>}/>
 
          })}
          <Route path="/*" element={<Navigate to={"files"}/>}/>

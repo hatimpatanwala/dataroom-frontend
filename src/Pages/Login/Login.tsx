@@ -22,6 +22,7 @@ const Login = (props:any) => {
     const onfinish=(evt:FormDataEvent)=>{
 console.log(evt)
 localStorage.setItem("user",JSON.stringify(evt))
+props.updateUserInfo(evt)
 // history("files")
 
 
