@@ -1,0 +1,31 @@
+.superadmin-login{
+    background-color: #f0f2f5!important;
+    height: 100vh!important;
+    align-items: center;
+}
+.su-login-container{
+  border-radius: 8px;
+    margin-top: 30vh;
+    background-color: white;
+    height: 30%;
+    align-items: center;
+    width:30%;
+    padding: 20px;
+    margin-left: 38%;
+    box-shadow: 2px -2px 14px -3px rgba(0,0,0,0.75);
+-webkit-box-shadow: 2px -2px 14px -3px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px -2px 14px -3px rgba(0,0,0,0.75);
+
+}
+.su-form-container{
+width: 90%;
+align-items: center;
+}
+.submit-btn{
+    width: 70%;
+    margin:auto;
+    margin-left: 25%;
+}
+.ant-spin-nested-loading{
+    width: 100%!important;
+}

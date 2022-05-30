@@ -9,7 +9,7 @@ console.log("braeadcrumb location change",location.pathname)
     },[location])
   return (
     <AntdBreadcrumb>
-        <AntdBreadcrumb.Item>Data Room</AntdBreadcrumb.Item>
+        {/* <AntdBreadcrumb.Item>Data Room</AntdBreadcrumb.Item> */}
     </AntdBreadcrumb>
   )
 }

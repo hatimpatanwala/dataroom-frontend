@@ -8,21 +8,21 @@ import Sider from './Components/Sider/Sider';
 import PrimaryRoutes from "./Routes/PrimaryRoutes"
 import {useState} from "react"
 import InfoPanel from './Components/InfoPanel/InfoPanel';
-import Login from './Pages/Login/Login';
+import Login from './Pages/Admin/Login/Login';
+import axios from 'axios';
+import { userLoginInfo } from './Models/Models';
+import UserInfo from './Pages/Admin/UserInfo/UserInfo';
 
 
 const {  Footer, Content } = Layout;
 
-interface userinfo{
-  email:string,
-  password:string,
-}
-type userinfoupdate=(value:userinfo)=>void
+
+type userinfoupdate=(value:userLoginInfo)=>void
 function App(props:any) {
   
   const [rightSider,setRightSider] =useState<boolean>(false)
   const [infoPanelIcon,setInfoPanelIcon] = useState<boolean>(false)
-  const [userInfo,setUserInfo]=useState<userinfo|null>(null)
+  const [userInfo,setUserInfo]=useState<userLoginInfo|null>(null)
   const [isLoading,setIsLoading ]=useState<boolean>(true)
 let location = useLocation()
 // const{id} =useParams()
@@ -47,8 +47,24 @@ const user = window.localStorage.getItem("user")
 if(user){
   setUserInfo(JSON.parse(user))
 }
+
 setIsLoading(false)
 },[location])
+// useEffect(()=>{
+//   if(userInfo){
+//     if(!userInfo.userDetails){
+//       axios.post(`http://localhost:5000/api/V1/admin/userinfo?uid=${userInfo.user}`,{headers:{
+//         Authorization:userInfo.token
+//       }}).then((res)=>{
+//         console.log(res)
+//         console.log(res.data)
+//       }).catch((err)=>{
+//         console.log(err.response)
+//       })
+//       }
+//   }
+ 
+// },[userInfo])
   const primaryRoutes = PrimaryRoutes()
   const rightSiderVisible = ()=>{
     setRightSider(!rightSider)
@@ -61,7 +77,15 @@ setUserInfo(values)
     <Route path='/login' element = {<Login updateUserInfo={updateUserInfo}/>}/>
     <Route path='/*' element={<Navigate to={"login"}/>} />
     </Routes>}
-   {userInfo &&<> <Header userInfo={userInfo}  />
+    {(userInfo &&!userInfo?.userDetails?.firstname && !userInfo?.userDetails?.lastname&& !userInfo?.userDetails?.position)&&
+   <Routes>
+   <Route path="/user-info/*" element={<UserInfo updateUserInfo={updateUserInfo}/>}/>
+   <Route path='/*' element={<Navigate to={"user-info"}/>} />
+   </Routes> 
+    }
+   {(userInfo && userInfo.userDetails) &&
+   <> 
+   <Header userInfo={userInfo}  />
     <Layout>
       <Sider /> 
         <Content >

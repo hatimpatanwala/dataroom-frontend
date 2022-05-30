@@ -1,0 +1,21 @@
+.admin-register{
+    background-color: #f0f2f5!important;
+    height: 100vh!important;
+    align-items: center;
+}
+.admin-register-container{
+    border-radius: 8px;
+    margin-top: 30vh;
+    background-color: white;
+    height: 30%;
+    align-items: center;
+    width:30%;
+    padding: 20px;
+    margin-left: 38%;
+    box-shadow: 2px -2px 14px -3px rgba(0,0,0,0.75);
+-webkit-box-shadow: 2px -2px 14px -3px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px -2px 14px -3px rgba(0,0,0,0.75);
+}
+.register-form-container{
+    width: 90%;
+}

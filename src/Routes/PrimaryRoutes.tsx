@@ -1,7 +1,7 @@
 import React from 'react'
-import Files from '../Pages/Files/Files'
-import NewRequest from '../Pages/NewRequest/NewRequest'
-import PendingRequest from '../Pages/PendingRequest/PendingRequest'
+import Files from '../Pages/Admin/Files/Files'
+import NewRequest from '../Pages/Admin/NewRequest/NewRequest'
+import PendingRequest from '../Pages/Admin/PendingRequest/PendingRequest'
 // import { primaryRoutesModel } from '../Models/Models'
 // const NewRequest =React.lazy(()=>import("../Pages/NewRequest/NewRequest"))
 // const PendingRequest = React.lazy(()=>impo)

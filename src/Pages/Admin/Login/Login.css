@@ -38,3 +38,14 @@ left: 3%;
     margin-left: 6%;
     width: 15%;
 }
+.ant-spin-spinning.spinner{
+    height: 100vh!important;
+    width: 100%!important;
+    position: absolute!important;
+    padding-top: 20%;
+    z-index: 1;
+}
+.spinning{
+    opacity:0.5!important;
+   
+}
