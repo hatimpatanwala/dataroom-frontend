@@ -1,4 +1,4 @@
-import { Form, Input } from 'antd'
+import { Button, Form, Input } from 'antd'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import "./ChangePassword.css"
@@ -18,7 +18,9 @@ const ChangePassword = () => {
        <Form.Item label="Confirm password">
            <Input/>
        </Form.Item>
-       <div className="" ></div>
+       <div className="pass-btn-wrapper" >
+           <Button type='primary' size='large' >Skip</Button>
+       </div>
        
    </Form>
   )
