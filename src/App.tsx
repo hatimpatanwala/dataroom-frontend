@@ -10,7 +10,7 @@ import {useState} from "react"
 import InfoPanel from './Components/InfoPanel/InfoPanel';
 import Login from './Pages/Admin/Login/Login';
 import axios from 'axios';
-import { userLoginInfo } from './Models/Models';
+import { userDetails, userLoginInfo } from './Models/Models';
 import UserInfo from './Pages/Admin/UserInfo/UserInfo';
 
 
@@ -70,7 +70,18 @@ setIsLoading(false)
     setRightSider(!rightSider)
   }
   const updateUserInfo:userinfoupdate =(values)=>{
+
 setUserInfo(values)
+
+  }
+  const updateUserDetails = (values:userDetails)=>{
+   let info:any ={...userInfo}
+   info.userDetails={...values}
+   console.log(info)
+   window.localStorage.removeItem("user")
+   window.localStorage.setItem("user",JSON.stringify(info))
+   setUserInfo(info)
+
   }
   return (<>{isLoading?<Spin className='loading-spin' tip="Loading..." />:<Layout className='main-container' >
   {!userInfo && <Routes>
@@ -79,11 +90,11 @@ setUserInfo(values)
     </Routes>}
     {(userInfo &&!userInfo?.userDetails?.firstname && !userInfo?.userDetails?.lastname&& !userInfo?.userDetails?.position)&&
    <Routes>
-   <Route path="/user-info/*" element={<UserInfo updateUserInfo={updateUserInfo}/>}/>
+   <Route path="/user-info/*" element={<UserInfo updateUserDetails={updateUserDetails} userInfo={userInfo}/>}/>
    <Route path='/*' element={<Navigate to={"user-info"}/>} />
    </Routes> 
     }
-   {(userInfo && userInfo.userDetails) &&
+   {(userInfo && userInfo?.userDetails?.firstname && userInfo?.userDetails?.lastname&& userInfo?.userDetails?.position) &&
    <> 
    <Header userInfo={userInfo}  />
     <Layout>

@@ -17,5 +17,6 @@ export interface userDetails{
     firstname:string;
     lastname:string;
     position:string;
-    profileimage?:string
+    profileimage?:string;
+    phoneno:string;
 }
