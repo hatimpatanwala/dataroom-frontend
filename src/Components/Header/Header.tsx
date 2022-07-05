@@ -1,9 +1,10 @@
 import React,{useEffect} from 'react'
-import {Avatar, Image, Layout, Row} from "antd"
+import {Avatar, Dropdown, Image, Layout, Menu, Row} from "antd"
 import { UserOutlined } from '@ant-design/icons';
 
 import "./Header.css"
 import { userInfo } from 'os';
+import { useNavigate } from 'react-router-dom';
 const {Header:AntdHeader} =Layout
 interface Iprops{
   userInfo:{
@@ -19,7 +20,16 @@ interface userinfo{
 }
 const Header = (props:any) => {
   const{userInfo} = props
-
+  const history= useNavigate()
+  const logout = ()=>{
+localStorage.clear()
+window.location.reload()
+  }
+const menu =(
+  <Menu>
+    <Menu.Item onClick={logout}>Logout</Menu.Item>
+  </Menu>
+)
   return (
     <AntdHeader>
         <div className='header-content'>
@@ -38,7 +48,7 @@ const Header = (props:any) => {
                 
                {/* <div style={{textAlign:"center"}}>{"Hatim Patanwala"}</div>  */}
               </div>
-              <Avatar size={50} icon={<UserOutlined/>} />
+              <Dropdown overlay={menu}><Avatar className='avatar' size={50} icon={<UserOutlined/>} /></Dropdown>
             </Row>
               
             </div>

@@ -27,9 +27,10 @@ const Login = (props:any) => {
         
     // },[])
     const onfinish=(evt:userLoginInfo)=>{
-        
+        console.log(process.env)
+        console.log(`${process.env.REACT_APP_SERVER_URL}/api/V1/admin/login`)
 setIsLoading(true)
-        axios.post(`${process.env.SERVER_URL}/api/V1/admin/login`,evt).then((res)=>{
+        axios.post(`${process.env.REACT_APP_SERVER_URL}/api/V1/admin/login`,evt).then((res)=>{
             const {data}=res
             data.token = "Bearer "+data.token
             localStorage.setItem("user",JSON.stringify(data))
