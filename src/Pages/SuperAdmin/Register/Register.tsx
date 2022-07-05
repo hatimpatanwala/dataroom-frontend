@@ -16,7 +16,7 @@ if(values){
     console.log(values)
     setIsLoading(true)
     values.password=generatePassword()
-    axios.post("http://localhost:5000/api/V1/superadmin/register",values,{headers:{
+    axios.post(`${process.env.SERVER_URL}/api/V1/superadmin/register`,values,{headers:{
         "Authorization":props.userInfo.token
     }}).then((res)=>{
        const {data}=res

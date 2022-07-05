@@ -5,6 +5,7 @@ import App from './App';
 import 'antd/dist/antd.css'
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import SuperAdmin from './Pages/SuperAdmin/SuperAdmin';
+import Users from './Pages/Users/Users';
 
 
 const root = ReactDOM.createRoot(
@@ -15,6 +16,7 @@ root.render(
   <BrowserRouter basename='/'>
     <Routes>
       <Route path='superadmin/*' element={<SuperAdmin/>}/>
+      <Route path="/users/*" element ={<Users/>}/>
       <Route path="/*" element={<App />}/>
 
     </Routes>

@@ -1,0 +1,33 @@
+.creditors-title{
+    text-align: center;
+    margin-bottom: 2%;
+}
+.creditors-fields{
+    display: flex;
+    width: 100%;
+    /* margin-left: 20%; */
+    margin: auto;
+    /* margin-top: 2%; */
+    margin-left: 15%;
+}
+.creditors-year{
+    margin-right: 3%;
+}
+.creditors-year{
+    width: 35%;
+}
+.creditors-options{
+    margin-right: 2%;
+    width: 35%;
+}
+.creditors-form .ant-form-item{
+    margin-bottom: 25px!important;
+}
+.creditors-form{
+    margin-left: 20%;
+    margin-top: 5%
+}
+.creditors-sub-btn{
+    /* margin: auto; */
+    margin-left: 35%;
+}

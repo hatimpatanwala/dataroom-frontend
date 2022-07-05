@@ -1,4 +1,4 @@
-import { Button, Form, Input, Spin } from 'antd'
+import { Button, Form, Input, Spin,message } from 'antd'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -15,17 +15,21 @@ interface userinfo {
 const Login = (props:any) => {
     const [isLoading,setIsLoading]=useState<boolean>(false)
     let history = useNavigate()
-    useEffect(()=>{
-        const info = localStorage.getItem("user")
-        if(info){
-            props.updateUserInfo(JSON.parse(info))
-        }
+    // useEffect(()=>{
+    //     setIsLoading(true)
+    //     const info = localStorage.getItem("user")
+    //     if(info){
+    //         axios.post("http://localhost:5000/api/V1/admin/login",{},{headers:{
+    //             Authorization:info
+    //         }})
+    //     }
+    //     setIsLoading(false)
         
-    },[])
+    // },[])
     const onfinish=(evt:userLoginInfo)=>{
         
 setIsLoading(true)
-        axios.post("http://localhost:5000/api/V1/admin/login",evt).then((res)=>{
+        axios.post(`${process.env.SERVER_URL}/api/V1/admin/login`,evt).then((res)=>{
             const {data}=res
             data.token = "Bearer "+data.token
             localStorage.setItem("user",JSON.stringify(data))
@@ -33,6 +37,7 @@ setIsLoading(true)
             setIsLoading(false)
         }).catch((err)=>{
             console.log(err)
+            message.error(err)
             setIsLoading(false)
         })
 console.log(evt)

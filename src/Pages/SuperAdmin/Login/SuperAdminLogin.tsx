@@ -9,7 +9,7 @@ const SuperAdminLogin =( props:any) => {
  
 const onLogin = (values:userLoginInfo)=>{
   setIsLoading(true)
-axios.post("http://localhost:5000/api/v1/superadmin/login",values).then((res)=>{
+axios.post(`${process.env.SERVER_URL}/api/v1/superadmin/login`,values).then((res)=>{
   console.log(res)
   if(res.data.role==="superadmin"){
     props.updateUserInfo(res.data)

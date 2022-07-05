@@ -17,7 +17,7 @@ interface userinfo{
     password?:string
   }
 }
-const Header = (props:userinfo) => {
+const Header = (props:any) => {
   const{userInfo} = props
 
   return (
@@ -32,9 +32,11 @@ const Header = (props:userinfo) => {
              <div>
             <Row style={{padding:"6px",lineHeight:"20px"}}>
               <div className='user-info'>
-                <div >{userInfo.email}</div>
+                <div style={{textAlign:"center"}}>{userInfo.emailid}</div>
+                <div style={{textAlign:"center"}}>{userInfo?.userDetails?.firstname} {userInfo.userDetails.lastname}</div>
+                <div style={{textAlign:"center"}}>{userInfo?.userDetails?.position} </div>
                 
-               <div style={{textAlign:"center"}}>{"Hatim Patanwala"}</div> 
+               {/* <div style={{textAlign:"center"}}>{"Hatim Patanwala"}</div>  */}
               </div>
               <Avatar size={50} icon={<UserOutlined/>} />
             </Row>

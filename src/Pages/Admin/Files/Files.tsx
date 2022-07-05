@@ -1,5 +1,6 @@
 import React from 'react'
-import {List,Card} from "antd"
+import {List,Card, Row, Col} from "antd"
+import "./Files.css"
 const data = [
   {
     label:"1",
@@ -23,19 +24,12 @@ const data = [
 const Files = () => {
 
   return (
-    <List grid={{ xs: 1,
-      sm: 2,
-      md: 3,
-      lg: 3,
-      xl: 3,
-      xxl: 3,}} dataSource={data} renderItem={item=>(
-      <List.Item>
-        <Card>{item.label}</Card>
-      </List.Item>
-    )}>
-      
-     
-    </List>
+    <Row gutter={10}>{data.map((d)=>{
+      return <Col span={5}>
+        <Card className="cards">{d.label}</Card>
+      </Col>
+    })}
+      </Row>
   )
 }
 

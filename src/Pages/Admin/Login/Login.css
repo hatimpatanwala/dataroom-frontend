@@ -9,7 +9,7 @@
 }
 .login-img{
     /* margin: auto; */
-    height: 48%;
+    height: 50%;
     width: 43%;
     /* margin-top: 12%;
     margin-left: 20%; */
@@ -31,7 +31,7 @@
 .login-input-container{
     position:relative;
     text-align: center;
-bottom: 15%;
+bottom: 17%;
 left: 3%;
 }
 .login-button{

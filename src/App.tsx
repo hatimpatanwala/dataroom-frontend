@@ -12,6 +12,7 @@ import Login from './Pages/Admin/Login/Login';
 import axios from 'axios';
 import { userDetails, userLoginInfo } from './Models/Models';
 import UserInfo from './Pages/Admin/UserInfo/UserInfo';
+import Users from './Pages/Users/Users';
 
 
 const {  Footer, Content } = Layout;
@@ -44,12 +45,29 @@ else{
 setInfoPanelIcon(true)
 }
 const user = window.localStorage.getItem("user")
+console.log(user)
 if(user){
-  setUserInfo(JSON.parse(user))
+  const Info = JSON.parse(user)
+axios.post(`${process.env.SERVER_URL}/api/V1/admin/login`,{},{headers:{
+  Authorization:Info.token
+}}).then(res=>{
+  console.log(res)
+  if(res.status===200 && res.data.success ){
+
+    setUserInfo(Info)
+  }
+  else{
+    window.localStorage.removeItem("user")
+  
+  }
+}).catch((err)=>{
+  window.localStorage.removeItem("user")
+  console.log(err)
+})
 }
 
 setIsLoading(false)
-},[location])
+},[])
 // useEffect(()=>{
 //   if(userInfo){
 //     if(!userInfo.userDetails){
@@ -109,7 +127,7 @@ setUserInfo(values)
     </div>
     <Divider className='breadcrumb-divider' />
     <Layout className='content-wrapper' style={{ justifyContent:"space-between"}}>
-      <div style={{overflowX:"auto"}}>
+      <div >
         <Routes>
          {primaryRoutes.map((tools)=>{
            const Component = tools.component

@@ -1,0 +1,38 @@
+.company-form-container{
+    text-align: center;
+}
+.company-form{
+    width:100%;
+    margin-left: 10%;
+    padding: 50px;
+}
+/* .company-form .ant-form-item-label{
+    width: 50%;
+} */
+/* .trade-info {
+    display: flex;
+} */
+.company-form .name-address .ant-form-item-label{
+    width:30%
+}
+.company-form .name-address .ant-form-item-control-input{
+    /* width:% */
+    width: 50%;
+}
+.company-form .trade-info .ant-form-item-label{
+    width: 30%;
+}
+.company-form .trade-info .ant-form-item-control-input{
+    width: 50%;
+}
+.company-form .trade-info .company-info-upload .ant-form-item-label{
+    width:40%
+}
+.company-info-btn{
+    /* align-items: center; */
+    margin-left: 40%;
+}
+.company-info-upload{
+    /* margin-right: 50px; */
+    width: 110%;
+}

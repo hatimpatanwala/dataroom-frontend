@@ -1,0 +1,8 @@
+.auth-check-container{
+    align-items: center!important;
+    background-color: #f0f2f5!important;
+    height: 100vh!important;
+}
+.auth-check-form{
+    margin: auto;
+}
