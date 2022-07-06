@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   // <React.StrictMode>
-  <BrowserRouter basename='/'>
+  <BrowserRouter basename='/dataroom-frontend'>
     <Routes>
       <Route path='superadmin/*' element={<SuperAdmin/>}/>
       <Route path="/users/*" element ={<Users/>}/>
