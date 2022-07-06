@@ -189,7 +189,7 @@ formData.append("parentId",props.values.id)
 formData.append("year",yearValue)
 // formData.append("option",optionValue)
 formData.append("upload",event.file)
-axios.post(`${process.env.SERVER_URL}/api/V1/request/upload`,formData).then((res)=>{
+axios.post(`${process.env.REACT_APP_SERVER_URL}/api/V1/request/upload`,formData).then((res)=>{
           console.log(res)
           if(res.status === 201){
 

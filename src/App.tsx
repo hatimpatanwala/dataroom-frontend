@@ -48,7 +48,7 @@ const user = window.localStorage.getItem("user")
 console.log(user)
 if(user){
   const Info = JSON.parse(user)
-axios.post(`${process.env.SERVER_URL}/api/V1/admin/login`,{},{headers:{
+axios.post(`${process.env.REACT_APP_SERVER_URL}/api/V1/admin/login`,{},{headers:{
   Authorization:Info.token
 }}).then(res=>{
   console.log(res)

@@ -13,7 +13,7 @@ const Users =()=>{
 //     useEffect(()=>{
 //         console.log(reqData)
 //         if(reqData){
-//             axios.get(`${process.env.SERVER_URL}/api/V1/request/user?id=idf8d2bcf844d41`).then((res)=>{
+//             axios.get(`${process.env.REACT_APP_SERVER_URL}/api/V1/request/user?id=idf8d2bcf844d41`).then((res)=>{
 // console.log(res.data)
 //             }).catch((err)=>{
 //                 console.log(err)

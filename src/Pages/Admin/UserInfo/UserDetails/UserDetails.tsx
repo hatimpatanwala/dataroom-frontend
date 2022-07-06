@@ -5,7 +5,7 @@ import React from 'react'
 const UserDetails = (props:any) => {
     const onSave = (values:any)=>{
         values.uid = props.userInfo.id
-        axios.post(`${process.env.SERVER_URL}/api/V1/admin/userdetail`,values,{headers:{
+        axios.post(`${process.env.REACT_APP_SERVER_URL}/api/V1/admin/userdetail`,values,{headers:{
             Authorization:props.userInfo.token
           }}).then((res)=>{
               if(res.status===200){

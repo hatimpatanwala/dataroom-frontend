@@ -13,7 +13,7 @@ useEffect(()=>{
     console.log("inside authcheck")
     console.log(id)
     if(id){
-axios.get(`${process.env.SERVER_URL}/api/V1/request/user?id=${id}`).then((res)=>{
+axios.get(`${process.env.REACT_APP_SERVER_URL}/api/V1/request/user?id=${id}`).then((res)=>{
     console.log(res)
     if(res.status===200){
         setOtpData(res.data)
@@ -35,7 +35,7 @@ const onSubmit=(values:any)=>{
     values.id=id
     values.otp = parseInt(values.otp)
     console.log(values)
-    axios.post(`${process.env.SERVER_URL}/api/V1/request/authcheck`,values).then((res)=>{
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/api/V1/request/authcheck`,values).then((res)=>{
         const {data} =res
         console.log(data)
         if(res.status===200){

@@ -21,7 +21,7 @@ const ChangePassword = (props:any) => {
           Authorization:props.userInfo.token
         }
       }
-      axios.post(`${process.env.SERVER_URL}/api/V1/admin/changepassword`,values,{headers:{
+      axios.post(`${process.env.REACT_APP_SERVER_URL}/api/V1/admin/changepassword`,values,{headers:{
         Authorization:props.userInfo.token
       }}).then((res)=>{
         console.log(res)

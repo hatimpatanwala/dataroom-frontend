@@ -22,7 +22,7 @@ const NewRequest = (props:any) => {
         values.uid = props.userInfo.id
         values.sender_emailid = props.userInfo.emailid
         // console.log(values)
-        axios.post(`${process.env.SERVER_URL}/api/V1/request/create`,values,{headers:{
+        axios.post(`${process.env.REACT_APP_SERVER_URL}/api/V1/request/create`,values,{headers:{
             Authorization:props.userInfo.token
         }}).then(res=>{
             console.log(res)

@@ -17,7 +17,7 @@ const UserForm = (props:any) => {
   const [values,setValues] = useState<any>(null)
     useEffect(()=>{
       if(!values && props.reqData){
-        axios.get(`${process.env.SERVER_URL}/api/V1/request/getrequest?uid=${props.reqData.uid}&request_id=${props.reqData.id}`).then((res)=>{
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/api/V1/request/getrequest?uid=${props.reqData.uid}&request_id=${props.reqData.id}`).then((res)=>{
           console.log(res)
           const {data} =res
           console.log(data)
