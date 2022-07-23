@@ -54,22 +54,13 @@ if(debitors1.id !==null||debitors1.FileList.length){
     if(debitors3.id !==null||debitors3.FileList.length){
       idList.push(debitors3.id)
       }
-// if(debitors2.id === null || !debitors2.FileList.length){
-//   message.error("All fields are required ")
-//   setIsLoading(false)
-//   return
-// }
-// if(debitors3.id === null || !debitors3.FileList.length){
-//   message.error("All fields are required ")
-//   setIsLoading(false)
-//   return
-// }
-
+console.log(props.values.request_id)
 const payload ={
   
     type:UploadTypes.debitors,
     id:props.values.id,
-  debitors:JSON.stringify(idList)
+  debitors:JSON.stringify(idList),
+  request_id:props.values.request_id
 }
        axios.post(`${process.env.REACT_APP_SERVER_URL}/api/V1/request/updaterequest`,payload).then((res)=>{
           console.log(res)

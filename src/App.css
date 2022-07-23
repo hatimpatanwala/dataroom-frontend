@@ -1,53 +1,51 @@
-
-.ant-layout{
+.ant-layout {
   height: 100% !important;
-  background-color: white!important;
+  background-color: white !important;
 }
-.main-container{
-  height:100vh!important;
-  width:100%;
+.main-container {
+  height: 100vh !important;
+  width: 100%;
   overflow: hidden;
 }
-.ant-layout-header{
+.ant-layout-header {
   /* background-color: #abe9cd!important; */
-  background-color: #fff!important;
-/* background-image: linear-gradient(315deg, #abe9cd 0%, #3eadcf 74%)!important; */
-border-bottom: 0.1px solid #b7b7b7!important;
-
+  background-color: #fff !important;
+  /* background-image: linear-gradient(315deg, #abe9cd 0%, #3eadcf 74%)!important; */
+  border-bottom: 0.1px solid #b7b7b7 !important;
 }
-.ant-layout-sider{
+.ant-layout-sider {
   /* box-shadow: 17px 2px 17px -19px rgba(0,0,0,0.75);
 -webkit-box-shadow: 17px 2px 17px -19px rgba(0,0,0,0.75);
 -moz-box-shadow: 17px 2px 17px -19px rgba(0,0,0,0.75);
 background-color: #696969!important; */
-/* border: none; */
-background-color: #fff!important;
+  /* border: none; */
+  background-color: #fff !important;
 }
-.ant-layout-content{
- padding:5px 15px;
- background-color:#fff !important;
+.ant-layout-content {
+  padding: 5px 15px;
+  background-color: #fff !important;
 }
-.ant-breadcrumb{
+.ant-breadcrumb {
   background-color: white;
 }
-.breadcrumb{
-/* margin-left:200px;
+.breadcrumb {
+  /* margin-left:200px;
 padding-left:15px;
 padding-right:15px; */
-display:flex;
-justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
-.breadcrumb-divider{
-  margin-top:5px;
-  margin-bottom:5px!important;
+.breadcrumb-divider {
+  margin-top: 5px;
+  margin-bottom: 5px !important;
 }
-.content-wrapper.ant-layout{
-  height:92%!important;
+.content-wrapper.ant-layout {
+  height: 92% !important;
+  overflow: auto;
   /* justify-content:"space-between" !important; */
-
 }
-.loading-spin{
+.loading-spin {
   /* text-align: center; */
-  margin-left: 50%!important;
-    margin-top: 30%!important;
+  margin-left: 50% !important;
+  margin-top: 30% !important;
 }

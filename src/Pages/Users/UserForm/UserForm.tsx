@@ -51,6 +51,7 @@ console.log(props.reqData)
           history("/users/form/debitors-info")
           return
         }
+        history("/login")
       }
     },[values])
     const uploadProps:UploadProps = {}

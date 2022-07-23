@@ -1,3 +1,31 @@
-.cards{
-    height: 10px;
+.cards.ant-card-bordered {
+  /* height: 10px; */
+  border-radius: 6px;
+  border: 1px solid #f0f0f0;
+}
+.cards.ant-card-bordered .ant-card-body {
+  padding: 11px !important;
+}
+.cards.is-active.ant-card.ant-card-bordered {
+  /* padding:11px; */
+  box-shadow: 0px 0px 20px -12px rgba(0, 0, 1, 0.67) !important;
+  -webkit-box-shadow: 0px 0px 20px -12px rgba(0, 0, 1, 0.67) !important;
+  -moz-box-shadow: 0px 0px 20px -12px rgba(0, 0, 1, 0.67) !important;
+  border-color: lightblue;
+}
+.cards.is-active.ant-card.ant-card-bordered .ant-card-body {
+  background-color: lightblue;
+}
+.folder-container {
+  cursor: pointer;
+  margin-top: 10px;
+}
+.files-txt {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  overflow-wrap: break-word;
 }
