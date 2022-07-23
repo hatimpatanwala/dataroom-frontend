@@ -38,7 +38,7 @@ const CompanyInfoForm = (props: any) => {
       (fileList.id !== '' || fileList.id !== null) &&
       fileList.FileList.length
     ) {
-      console.log('inside')
+      console.log(payload)
 
       axios
         .post(
