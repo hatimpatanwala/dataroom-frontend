@@ -281,7 +281,7 @@ const DebitorsForm = (props: any) => {
   return (
     <Spin spinning={isLoading} tip='Loading...'>
       <div className='debitors-title'>
-        <h1>debitors information</h1>
+        <h1>Debtors information</h1>
       </div>
       <Form className='debitors-form' form={form} onFinish={onfinish}>
         <Form.Item name='creditor1'>

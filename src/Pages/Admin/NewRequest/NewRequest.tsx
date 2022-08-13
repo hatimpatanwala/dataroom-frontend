@@ -140,13 +140,13 @@ const NewRequest = (props: any) => {
               </Input.Group>
             </Tooltip>
           </Form.Item>
-          <Form.Item label='Debitors ageing'>
+          <Form.Item label='Debtors ageing'>
             <Tooltip title='Not editable coming soon...'>
               <Input.Group compact>
                 <Form.Item>
                   <Select disabled defaultValue={'debitors'}>
                     <Select.Option value='debitors'>
-                      Debitors ageing Info
+                      Debtors ageing Info
                     </Select.Option>
                   </Select>
                 </Form.Item>
