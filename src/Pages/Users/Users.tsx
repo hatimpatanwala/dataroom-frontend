@@ -1,15 +1,16 @@
-import { Form, Input } from 'antd'
-import axios from 'axios'
-import { useState, useEffect } from 'react'
-import { Route, Routes, useNavigate, useSearchParams } from 'react-router-dom'
-import AuthCheck from './AuthCheck/AuthCheck'
-import InvalidPage from './InvalidPage/InvalidPage'
-import UserForm from './UserForm/UserForm'
+import { Form, Input } from 'antd';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { Route, Routes, useNavigate, useSearchParams } from 'react-router-dom';
+import AuthCheck from './AuthCheck/AuthCheck';
+import InvalidPage from './InvalidPage/InvalidPage';
+import SuccessfulForm from './UserForm/Components/SuccessfulForm/SuccessfulForm';
+import UserForm from './UserForm/UserForm';
 
 const Users = () => {
   // const [searchParams,setSearchParams]=useSearchParams()
-  const [reqData, setReqData] = useState<any>(null)
-  const history = useNavigate()
+  const [reqData, setReqData] = useState<any>(null);
+  const history = useNavigate();
   //     useEffect(()=>{
   //         console.log(reqData)
   //         if(reqData){
@@ -21,9 +22,9 @@ const Users = () => {
   //         }
   //     },[reqData])
   const updateReqData: any = (values: any) => {
-    console.log(values)
-    setReqData(values)
-  }
+    console.log(values);
+    setReqData(values);
+  };
   // useEffect(()=>{
 
   //     window.addEventListener("onload",e=>{
@@ -46,9 +47,10 @@ const Users = () => {
           element={<AuthCheck updateReqData={updateReqData} />}
         />
         <Route path='/form/*' element={<UserForm reqData={reqData} />} />
+        {/* <Route path='/successful' element={<SuccessfulForm />} /> */}
         <Route path='/invalid' element={<InvalidPage />} />
       </Routes>
     </>
-  )
-}
-export default Users
+  );
+};
+export default Users;

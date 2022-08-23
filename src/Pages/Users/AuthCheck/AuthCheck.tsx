@@ -1,59 +1,59 @@
-import { Button, Form, Input, Layout, Spin } from 'antd'
-import axios from 'axios'
-import React, { useState, useEffect } from 'react'
-import { useSearchParams, useNavigate } from 'react-router-dom'
-import './AuthCheck.css'
+import { Button, Form, Input, Layout, Spin } from 'antd';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams, useNavigate } from 'react-router-dom';
+import './AuthCheck.css';
 const AuthCheck = (props: any) => {
-  const [searchParams, setSearchParams] = useSearchParams()
-  const [otpData, setOtpData] = useState<any>(null)
-  const [isLoading, setIsLoading] = useState<boolean>(true)
-  const history = useNavigate()
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [otpData, setOtpData] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const history = useNavigate();
   useEffect(() => {
-    const id = searchParams.get('id')
-    console.log('inside authcheck')
-    console.log(id)
+    const id = searchParams.get('id');
+    console.log('inside authcheck');
+    console.log(id);
     if (id) {
       axios
         .get(`${process.env.REACT_APP_SERVER_URL}/api/V1/request/user?id=${id}`)
         .then((res) => {
-          console.log(res)
+          console.log(res);
           if (res.status === 200) {
-            setOtpData(res.data)
-            setIsLoading(false)
+            setOtpData(res.data);
+            setIsLoading(false);
           }
         })
         .catch((err) => {
-          console.log(err)
-          history('/users/invalid')
-        })
+          console.log(err);
+          history('/users/invalid');
+        });
     } else {
-      history('/users/invalid')
+      history('/users/invalid');
     }
-  }, [])
+  }, []);
   const onSubmit = (values: any) => {
-    const id = searchParams.get('id')
-    values.id = id
-    values.otp = parseInt(values.otp)
-    console.log(values)
+    const id = searchParams.get('id');
+    values.id = id;
+    values.otp = parseInt(values.otp);
+    console.log(values);
     axios
       .post(
         `${process.env.REACT_APP_SERVER_URL}/api/V1/request/authcheck`,
         values
       )
       .then((res) => {
-        const { data } = res
-        console.log(data)
+        const { data } = res;
+        console.log(data);
         if (res.status === 200) {
-          console.log(data)
-          props.updateReqData(data)
-          history('/users/form')
+          console.log(data);
+          props.updateReqData(data);
+          history('/users/form');
         }
       })
       .catch((err) => {
-        console.log(err)
-        alert(err.message)
-      })
-  }
+        console.log(err);
+        alert(err.message);
+      });
+  };
   return (
     <Layout className='auth-check-container'>
       {isLoading ? (
@@ -89,7 +89,7 @@ const AuthCheck = (props: any) => {
         </div>
       )}
     </Layout>
-  )
-}
+  );
+};
 
-export default AuthCheck
+export default AuthCheck;

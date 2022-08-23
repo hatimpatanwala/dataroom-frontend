@@ -1,40 +1,43 @@
-import React, { useEffect, useState } from 'react'
-import { Layout } from 'antd'
+import React, { useEffect, useState } from 'react';
+import { Layout } from 'antd';
 // import { UploadOutlined } from '@ant-design/icons';
-import type { UploadProps } from 'antd'
-import { Routes, Route, Navigate, useNavigate } from 'react-router-dom'
-import axios from 'axios'
-import './UserForm.css'
-import CompanyInfoForm from './Components/CompanyInfoForm/CompanyInfoForm'
-import FinancialForm from './Components/FinancialForm/FinancialForm'
-import CreditorsForm from './Components/CreditorsForm/CreditorsForm'
-import ShareHolderInfo from './Components/ShareHolderInfo/ShareHolderInfo'
-import DebitorsForm from './Components/DebitorsForm/DebitorsForm'
+import type { UploadProps } from 'antd';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import './UserForm.css';
+import CompanyInfoForm from './Components/CompanyInfoForm/CompanyInfoForm';
+import FinancialForm from './Components/FinancialForm/FinancialForm';
+import CreditorsForm from './Components/CreditorsForm/CreditorsForm';
+import ShareHolderInfo from './Components/ShareHolderInfo/ShareHolderInfo';
+import DebitorsForm from './Components/DebitorsForm/DebitorsForm';
+import SuccessfulForm from './Components/SuccessfulForm/SuccessfulForm';
 
 interface formDetails {}
 const UserForm = (props: any) => {
-  let history = useNavigate()
-  const [values, setValues] = useState<any>(null)
+  let history = useNavigate();
+  const [values, setValues] = useState<any>(null);
   useEffect(() => {
+    console.log(values);
+    console.log(props.reqData);
     if (!values && props.reqData) {
       axios
         .get(
           `${process.env.REACT_APP_SERVER_URL}/api/V1/request/getrequest?uid=${props.reqData.uid}&request_id=${props.reqData.id}`
         )
         .then((res) => {
-          console.log(res)
-          const { data } = res
-          console.log(data)
-          setValues(data)
+          console.log(res);
+          const { data } = res;
+          console.log(data);
+          setValues(data);
         })
         .catch((err) => {
-          console.log(err)
-        })
+          console.log(err);
+        });
     } else {
-      history('/users/authcheck?id=idf27a33a8ce9be')
+      history('/users/invalid');
     }
-    console.log(props.reqData)
-  }, [])
+    console.log(props.reqData);
+  }, [props.reqData]);
   useEffect(() => {
     if (values) {
       if (
@@ -43,30 +46,30 @@ const UserForm = (props: any) => {
         !values.company_name &&
         !values.phoneno
       ) {
-        history('/users/form/company-info')
-        return
+        history('/users/form/company-info');
+        return;
       }
       if (!values.financials) {
-        history('/users/form/financial-info')
-        return
+        history('/users/form/financial-info');
+        return;
       }
       if (!values.creditors) {
-        history('/users/form/creditors-info')
-        return
+        history('/users/form/creditors-info');
+        return;
       }
       if (!values.debitors) {
-        history('/users/form/debitors-info')
-        return
+        history('/users/form/debitors-info');
+        return;
       }
-      history('/login')
+      history('/users/form/successful');
     }
-  }, [values])
-  const uploadProps: UploadProps = {}
+  }, [values]);
+  const uploadProps: UploadProps = {};
   const updateValues = (vals: any) => {
-    const tempVals = { ...values, ...vals }
-    console.log(tempVals)
-    setValues(tempVals)
-  }
+    const tempVals = { ...values, ...vals };
+    console.log(tempVals);
+    setValues(tempVals);
+  };
   return (
     <Layout className='user-form-container'>
       <div className='usersForm-wrapper'>
@@ -102,10 +105,11 @@ const UserForm = (props: any) => {
             }
           />
           <Route />
+          <Route path='successful' element={<SuccessfulForm />} />
         </Routes>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default UserForm
+export default UserForm;

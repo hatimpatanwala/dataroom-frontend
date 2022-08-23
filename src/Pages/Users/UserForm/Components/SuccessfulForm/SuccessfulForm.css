@@ -1,0 +1,19 @@
+.successful-container {
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+  width: 117%;
+  padding-top: 18%;
+  background-color: #f0f2f5 !important;
+}
+.success-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-top: 10%; */
+}
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { List, Card, Row, Col, message, Spin } from 'antd'
-import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
-import './Files.css'
+import React, { useEffect, useState } from 'react';
+import { List, Card, Row, Col, message, Spin } from 'antd';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import './Files.css';
 
 const data = [
   {
@@ -20,12 +20,12 @@ const data = [
     type: 'folder',
     key: '3',
   },
-]
+];
 const Files = (props: any) => {
-  const history = useNavigate()
-  const [completeReq, setCompletedReq] = useState<any>([])
-  const [isLoading, setIsLoading] = useState<boolean>(true)
-  const [isActive, setIsActive] = useState<string>('')
+  const history = useNavigate();
+  const [completeReq, setCompletedReq] = useState<any>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isActive, setIsActive] = useState<string>('');
 
   useEffect(() => {
     axios
@@ -38,31 +38,31 @@ const Files = (props: any) => {
         }
       )
       .then((res) => {
-        setCompletedReq(res.data.data)
-        console.log(res.data.data)
-        setIsLoading(false)
+        setCompletedReq(res.data.data);
+        console.log(res.data.data);
+        setIsLoading(false);
         if (res.data.length) {
-          message.warning('No files')
+          message.warning('No files');
         }
       })
       .catch((err) => {
-        console.log(err)
-        message.error('something went wrong')
-        setIsLoading(false)
-      })
-  }, [])
+        console.log(err);
+        message.error('something went wrong');
+        setIsLoading(false);
+      });
+  }, []);
   const singleClick = (evt: any, id: string) => {
-    console.log(id)
+    console.log(id);
 
-    setIsActive(id)
-  }
+    setIsActive(id);
+  };
 
   return (
     <>
       {isLoading ? (
         <Spin tip='Loading...' />
       ) : (
-        <Row>
+        <Row gutter={10} style={{ marginRight: '0px', marginLeft: '0px' }}>
           {completeReq.map((d: any) => {
             return (
               <Col span={6} className='folder-container' key={d.id}>
@@ -70,7 +70,7 @@ const Files = (props: any) => {
                   className={`cards ${isActive === d.id ? 'is-active' : ''}`}
                   onClick={(evt) => singleClick(evt, d.id)}
                   onDoubleClick={() => {
-                    history('/files/' + d.id)
+                    history('/files/' + d.id);
                   }}
                 >
                   <Row>
@@ -88,12 +88,12 @@ const Files = (props: any) => {
                   </Row>
                 </Card>
               </Col>
-            )
+            );
           })}
         </Row>
       )}
     </>
-  )
-}
+  );
+};
 
-export default Files
+export default Files;

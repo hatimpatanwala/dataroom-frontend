@@ -51,7 +51,7 @@ const PendingRequest = (props: any) => {
       {isLoading ? (
         <Spin tip='Loading...' />
       ) : (
-        <Row>
+        <Row gutter={10} style={{ marginRight: '0px', marginLeft: '0px' }}>
           {pendingReq?.map((d: any) => {
             return (
               <Col span={6} className='folder-container' key={d.id}>
